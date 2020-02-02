@@ -1,0 +1,12 @@
+// Important things
+@import './00-config/veriables.scss';
+@import './01-base/document.scss';
+
+// :molecules
+@import './04-molecules/_pricing';
+@import './04-molecules/_widget';
+
+// :organisms
+// @import './05-organisms/_navbar';
+@import './05-organism/_sidebar';
+// @import './05-organisms/_footer';

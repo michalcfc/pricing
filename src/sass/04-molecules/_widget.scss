@@ -1,0 +1,252 @@
+.widget {
+  border-radius: 4px;
+  margin-bottom: 1.875rem;
+  position: relative;
+  background: #fff;
+  border: none;
+  // -webkit-box-shadow: 0px 0px 13px 0px rgba(82, 63, 105, 0.05);
+  // -moz-box-shadow: 0px 0px 13px 0px rgba(82, 63, 105, 0.05);
+  // box-shadow: 0px 0px 13px 0px rgba(82, 63, 105, 0.05)
+  box-shadow: 0 4px 18px 3px rgba(189, 208, 223, 0.26)
+}
+
+.widget__special {
+  color: #fff;
+  border-radius: 4px;
+  margin-bottom: 1.875rem;
+  position: relative;
+  border: none;
+  box-shadow: 0px 0px 13px 0px rgba(82, 63, 105, 0.05);
+  background: #8362fb
+      /* background: linear-gradient(230deg, #2196F3, #007bff); */
+}
+
+/* .widget input[type=checkbox] {
+  display: block
+} */
+
+.progress {
+  height: 0.4rem;
+  border-radius: 0;
+  background: #e7e9f6 !important;
+}
+
+.bg-success {
+  background-color: #1dc9b7 !important;
+}
+
+.bg-danger {
+  background-color: #fd397a !important;
+}
+
+.widget,
+.widget__special img {
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.widget h4 {
+  font-size: 1.13rem;
+  margin: 0;
+  margin-bottom: 1.25rem
+}
+
+.widget p {
+  font-size: 0.88rem;
+}
+
+.widget a {
+  color: inherit;
+}
+
+.widget__task__info {
+  position: relative
+}
+
+.widget__photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.widget__wrapper {
+  /* height: 240px; */
+  width: 480px;
+}
+
+.widget__header {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.widget__title {
+  margin-bottom: 1rem;
+}
+
+.widget__title a {
+  color: #212529
+}
+
+.widget__body {
+  padding: 1.5rem;
+}
+
+.widget__icon__wrapper {
+  height: 4.2em;
+  width: 4.2rem;
+}
+
+.widget__icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-size: 29px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.widget__icon i {
+  color: inherit !important;
+}
+
+.widget__icon-views {
+  color: #00c851 !important;
+  background: rgba(0, 200, 81, .3) !important;
+}
+
+.widget__icon-questions {
+  color: #fb3 !important;
+  background: rgba(255, 187, 51, 0.3);
+}
+
+.widget__icon-announces {
+  color: #33b5e5 !important;
+  background: rgba(51, 181, 229, .3) !important;
+}
+
+.widget__label-success {
+  color: #00c851 !important;
+  ;
+}
+
+.widget__label-info {
+  color: #33b5e5 !important;
+}
+
+.widget__label-warning {
+  color: #fb3 !important;
+}
+
+.widget__label-danger {
+  color: #fd397a !important;
+  ;
+}
+
+
+.widget__items {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.widget__list {
+  display: flex;
+  padding: .75rem;
+  border-bottom: 1px solid #f3f3f3;
+  justify-content: space-between;
+}
+
+.widget__task {
+  display: flex;
+  padding: 1rem;
+  /* margin-bottom: 10px; */
+  border-bottom: 1px solid #f3f3f3;
+  justify-content: space-between;
+}
+
+.widget__task:last-child {
+  border: none;
+}
+
+.widget__task__info {
+  margin: 0;
+  line-height: 16px;
+}
+
+.widget__task-done {
+  color: #fff;
+  /* content: "✓"; */
+  height: 21px;
+  font-size: 8px;
+  border-radius: 50%;
+  padding: 6px;
+  text-align: center;
+  width: 21px;
+  background: #00c851;
+  margin-right: 10px;
+}
+
+.widget__task-todo {
+  color: #fff;
+  /* content: "✓"; */
+  height: 21px;
+  font-size: 8px;
+  border-radius: 50%;
+  padding: 6px;
+  text-align: center;
+  width: 21px;
+  background: #eee;
+  margin-right: 10px;
+}
+
+.widget__content {
+  margin-top: 4px;
+  line-height: 10px;
+  font-size: 0.9rem;
+}
+
+.widget__footer {
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+}
+
+.btn__link {
+  font-size: 14px;
+  color: #0056b3;
+}
+
+.widget__status {
+  display: inline-block;
+}
+
+.widget__status__label-active {
+  font-size: 14px;
+  color: #00c851;
+}
+
+.widget__status-active {
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  background: #00c851;
+  border-radius: 50%;
+}
+
+
+
+.widget__help {
+  margin: 10px;
+  font-size: 12px;
+  line-height: 1.6rem;
+}
+
+.widget__help ul,
+ol {
+  padding-left: 10px;
+  margin: 0;
+}
