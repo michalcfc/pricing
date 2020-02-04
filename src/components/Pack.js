@@ -10,7 +10,7 @@ class Pack extends Component {
   };
 
   render() {
-    const { id, name, benefits } = this.props;
+    const { id, name, benefits, price } = this.props;
     return (
       <>
         <div className="col-md-4">
@@ -28,7 +28,7 @@ class Pack extends Component {
             </div>
             <div className="pricing__footer">
               <strong>
-                <span>$199</span> /monthly
+                <span>{price}</span> /monthly
               </strong>
               <Link
                 onClick={() => this.addPack(id)}

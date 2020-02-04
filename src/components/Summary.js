@@ -2,18 +2,26 @@ import React from "react";
 import { Component, useRef } from 'react'
 import Method from './Method'
 import Cart from './Cart'
+import blank from '../img/blank.png'
+import dotpay from '../img/dotpay2.png'
+import pdf from '../img/pdf.png'
 import Invoice from './Invoice'
 import TotalPrice from './TotalPrice'
 import MethodContent from './MethodContent';
 import { addItems, removeItems, changeData, payMethod, reservation } from "../store/action";
 
-const methods = [{ id: 1, name: 'dotpay', content: "pay dotpay" }, { id: 2, name: 'p24', content: "pay p24" }, { id: 3, name: 'proforma', content: " pay normal" }]
+const methods = [
+  { id: 1, name: 'dotpay', descr: 'Szybkie płatności online. Gwarancja szybkiego zaksiegowania wpłaty.', content: "pay dotpay", img: dotpay },
+  { id: 2, name: 'proforma', descr: 'Pobierz fakturę proforma w formie .pdf na podstawie której dokonasz płatności', content: "pay p24", img: pdf },
+  { id: 3, name: 'blank', descr: 'Wyświetl dane do przelewu tradycyjnego aby zapłacić na poczcie lub w dowolnym punkcie.', content: " pay normal", img: blank }]
 
 class Summary extends Component {
 
   state = {
     isEdtidMode: false,
-    value: "Grupa iTur.pl Sp.z.o.o"
+    value: `Chelsea Football Club
+    Fulham Road
+    SW6 1HS London`
   }
 
   addItems = (name, value, id) => {
@@ -72,7 +80,7 @@ class Summary extends Component {
     return (
       <>
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-xl-8">
             <div className="widget">
               <div className="widget__body">
                 {/* <h4>{props.pack.length || "No"} items in cart</h4> */}

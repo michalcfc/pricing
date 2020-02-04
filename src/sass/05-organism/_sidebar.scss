@@ -43,6 +43,9 @@ box-shadow: 1px 0 14px rgba(0,0,0,.05);
 background: $white;
 // border-right: 1px solid $gray-300;
 //   box-shadow: 2px 2px 2px (rgb(246, 247, 248));
+@include respond-to(handheld) {
+display: none;
+}
 & svg {
     margin: 0 10px;
 }
@@ -81,7 +84,7 @@ background: $white;
   animation-name: animate;
   animation-timing-function: linear;
   background: #f6f7f8;
-  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background: linear-gradient(to right, #f0f2f5 8%, #e3e8ee 30%, #f0f2f5 33%);
   background-size: 800px 104px;
   }
 
@@ -91,16 +94,16 @@ background: $white;
  
 .loader {
   margin: 10px;
-  background: #eee;
+  background: linear-gradient(to right, #f0f2f5 8%, #e3e8ee 30%, #f0f2f5 33%);
   width: 80%;
-  padding: 6px;
-  height: 10px;
+  padding: 4px;
+  // height: 10px;
   border-radius: 1em;
 }
  
 .loader-small {
   margin: 10px;
-  background: #eee;
+  background: rgb(187, 172, 172)ar-gradient(to right, #f0f2f5 8%, #e3e8ee 30%, #f0f2f5 33%);
   width: 60%;
   padding: 4px;
   height: 4px;
@@ -108,7 +111,7 @@ background: $white;
 }
   
 .loader-icon {
-  background: #eee;
+  background: linear-gradient(to right, #f0f2f5 8%, #e3e8ee 30%, #f0f2f5 33%);
   margin: 0 auto;
   width: 80px;
   height: 80px;
