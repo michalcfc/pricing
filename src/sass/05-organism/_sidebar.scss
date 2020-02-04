@@ -43,9 +43,6 @@ box-shadow: 1px 0 14px rgba(0,0,0,.05);
 background: $white;
 // border-right: 1px solid $gray-300;
 //   box-shadow: 2px 2px 2px (rgb(246, 247, 248));
-@include respond-to(handheld) {
-display: none;
-}
 & svg {
     margin: 0 10px;
 }

@@ -13,13 +13,8 @@ const Method = (props) => {
                                 className={"widget method " + (active === item.id ? "method__selected " : "")}
                                 onClick={() => props.payMethod(item.id)}>
                                 <div className="widget__body">
-                                    <div className="widget__items">
-                                        <div>
-                                            {item.name}
-                                            <p className="text-muted">{item.descr}</p>
-                                        </div>
-                                        <div> <img src={item.img} /></div>
-                                    </div>
+
+                                    {item.name}
                                 </div>
                             </div>
                         </div>

@@ -25,18 +25,6 @@ const Sidebar = () => {
                 <div className="loader" />
               </div>
             </li>
-            <li>
-              <div className="loader_content">
-                <div className="loader-small" />
-                <div className="loader" />
-              </div>
-            </li>
-            <li>
-              <div className="loader_content">
-                <div className="loader-small" />
-                <div className="loader" />
-              </div>
-            </li>
           </ul>
         </div>
 

@@ -80,7 +80,7 @@ class Summary extends Component {
     return (
       <>
         <div className="row">
-          <div className="col-xl-8">
+          <div className="col-md-8">
             <div className="widget">
               <div className="widget__body">
                 {/* <h4>{props.pack.length || "No"} items in cart</h4> */}
@@ -93,11 +93,11 @@ class Summary extends Component {
                   removeItems={removeItems} />
                 <p><input checked={reservation} onChange={(value) => this.reservation(value)} type="checkbox"></input> reservation on-line</p>
 
-                {/* <Invoice renderEditMode={this.renderEditMode} renderEditView={this.renderEditView} changeText={this.changeText} isEdtidMode={this.state.isEdtidMode} ref={inputRef} /> */}
-                {this.state.isEdtidMode ?
+                <Invoice renderEditMode={this.renderEditMode} renderEditView={this.renderEditView} changeText={this.changeText} isEdtidMode={this.state.isEdtidMode} ref={inputRef} />
+                {/* {this.state.isEdtidMode ?
                   this.renderEditView() :
                   this.renderEditMode()}
-                <a href="#" onClick={this.changeText}>Edit</a>
+                <a href="#" onClick={this.changeText}>Edit</a> */}
                 <Method
                   items={methods}
                   payMethod={chooseMethod}
