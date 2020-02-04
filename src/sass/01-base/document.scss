@@ -76,11 +76,6 @@ ul, li {
   margin-top: 70px;
 }
 
-.main {
-  padding: 30px 15px;
-  min-height: 100vh;
-  // box-shadow: 0 4px 10px 3px rgba(189, 208, 223, 0.26);
-}
 
 .content {
   // background: $white;
@@ -93,8 +88,16 @@ ul, li {
 }
 
 .main {
-  width: calc(100% - 10rem)
+  padding: 30px 15px;
+  min-height: 100vh;
+  width: calc(100% - 10rem);
+  @include respond-to(handheld) {
+    width: 100%;
+    }
 }
+
+
+
 
 .content-wrapper {
   background: #f3f3fc;

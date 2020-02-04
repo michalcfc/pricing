@@ -3,7 +3,7 @@ import React from 'react';
 const TotalPrice = (props) => {
     const { total, reservation } = props
     return (
-        <div className="col-md-4">
+        <div className="col-xl-4">
             <div className="summary__pay">
                 <div className="widget__body">
                     <div className="widget__items">

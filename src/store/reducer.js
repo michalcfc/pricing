@@ -77,11 +77,7 @@ const reducer = (state = initialState, action) => {
       let addPack = state.pack.find(item => item.id === action.id)
       if (action.name === "quantity") {
         addPack.quantity += 1
-<<<<<<< HEAD
         addPack.freePoints += addPack.points
-=======
-        addPack.freePoints *= addPack.quantity
->>>>>>> 7c533d008f1539b6592f23bbdf4632c25e58c3c7
         let newTotal = state.total + addPack.price
         return {
           ...state,
@@ -101,11 +97,7 @@ const reducer = (state = initialState, action) => {
       let removePack = state.pack.find(item => item.id === action.id)
       if (action.name === "quantity") {
         removePack.quantity -= 1
-<<<<<<< HEAD
         removePack.freePoints -= removePack.points
-=======
-        removePack.freePoints /= removePack.quantity
->>>>>>> 7c533d008f1539b6592f23bbdf4632c25e58c3c7
         let newTotal = state.total - removePack.price
         return {
           ...state,
