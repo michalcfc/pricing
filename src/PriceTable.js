@@ -2,7 +2,7 @@ import React from "react";
 // import { Provider } from "react-redux";
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import { Summary, Packs, Sidebar, Topbar } from "./components";
+import { Variants, Summary, Packs, Sidebar, Topbar } from "./components";
 import PropType from "prop-types";
 import { connect } from "react-redux";
 import { compose } from "redux";
@@ -21,7 +21,8 @@ const Routes = props => {
         <div className="content">
           <Router history={browserHistory}>
             <Switch>
-              <Route exact path="/" component={() => <Packs {...props} />} />
+              <Route exact path="/" component={() => <Variants {...props} />} />
+              <Route exact path="/packs" component={() => <Packs {...props} />} />
               <Route path="/summary" component={() => <Summary {...props} />} />
             </Switch>
           </Router>
