@@ -7,8 +7,7 @@ const Invoice = (props) => {
             <h4>Invoice Data </h4>
             <div className="d-flex align-items-center">
                 <input className="mr-3" type="radio" />
-                {props.isEdtidMode ? props.renderEditMode() : props.renderEditView()}
-                <button onClick={() => props.changeText()} className="btn-link">[Edit]</button>
+                {props.isEdtidMode ? props.renderEditView() : props.renderEditMode()}
             </div>
             <button className="btn-link">+ Add another</button>
             <div className="invoice__info">

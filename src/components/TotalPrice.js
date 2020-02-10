@@ -8,7 +8,9 @@ const TotalPrice = (props) => {
                 <div className="widget__body">
                     <div className="widget__items">
                         <div>Total price:</div>
-                        <div>${total}</div>
+                        <div className="total__price">
+                            <span className="total__price-27">{total}</span>,
+                            <span className="total__price-21">00 zł</span></div>
                     </div>
                     <div className="mt-4">{reservation ? 'Additional 8% for each reservation' : ''}</div>
                 </div>

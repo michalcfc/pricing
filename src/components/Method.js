@@ -18,7 +18,7 @@ const Method = (props) => {
                                             {item.name}
                                             <p className="text-muted">{item.descr}</p>
                                         </div>
-                                        <div> <img src={item.img} /></div>
+                                        <div> <img src={item.img} alt="pay" /></div>
                                     </div>
                                 </div>
                             </div>

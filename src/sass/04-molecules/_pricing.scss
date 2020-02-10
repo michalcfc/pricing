@@ -84,6 +84,11 @@ border-radius: 4px;
   }
 }
 
+.cart__item {
+  height: 80px;
+  border-bottom: 1px solid #ddd;
+}
+
 .toggle-btn {
   width: 80px;
   height: 30px;
@@ -165,4 +170,54 @@ border-radius: 4px;
 .invoice__info {
   padding: 20px 10px;
   background: #f8f8fb;
+}
+
+.total__price {
+  font-weight: 500;
+  &-27 {
+    font-size: 27px;
+  }
+  &-21 {
+    font-size: 21px;
+  }
+}
+
+.w-300 {
+  width: 300px;
+}
+
+.tip {
+  position: absolute;
+  top: 16px;
+  left: -12px;
+}
+
+.tip__close {
+  top: 4px;
+  right: 10px;
+  opacity: 0.8;
+  position: absolute;
+  cursor: pointer
+}
+
+.tip__body {
+  background: #3578e5;
+  border: 0;
+  color: #fff;
+  font-size: 14px;
+  width: 300px;
+  line-height: 18px;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+  padding: 10px 34px 12px 10px;
+  position: relative;
+}
+
+.tip__arrow {
+  position: absolute;
+  border-bottom: 9px solid #3578e5;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  top: 7px;
+  margin-left: 10px
 }

@@ -10,7 +10,7 @@ const Cart = (props) => {
             <div className="mb-5">
                 {pack.map((p, id) => (
                     <div key={id}>
-                        <div className="widget__items">
+                        <div className="widget__items cart__item">
                             <div>  Pakiet reklamowy {p.name} </div>
                             <div>
                                 <Increments
@@ -24,12 +24,14 @@ const Cart = (props) => {
                                 >
                             </div>
                             <div>
-                                ${p.price * p.quantity}
-                                <p>{p.quantity > 1 ? p.price + " / szt" : ''}</p>
+                                <div className="total__price">
+                                    <span className="total__price-27">  {p.price * p.quantity}</span>,
+                                <span className="total__price-21">00 zł</span> </div>
+                                <p>{p.quantity > 1 ? p.price + " zł / szt" : ''}</p>
                             </div>
                         </div>
-                        <div className="widget__items">
-                            <div>Punkty reklamowe </div>
+                        <div className="widget__items cart__item">
+                            <div>Punkty pozycjonujące </div>
                             <div><Increments id={p.id}
                                 items="points"
                                 quantity={p.freePoints + p.additionalPoints}
@@ -39,7 +41,7 @@ const Cart = (props) => {
                                 disabled={p.freePoints + p.additionalPoints === p.freePoints}
                             /> </div>
                             <div>
-                                {p.additionalPoints === 0 ? "GRATIS" : "$" + p.additionalPoints}
+                                {p.additionalPoints === 0 ? "GRATIS" : p.additionalPoints + " zł"}
                                 <p>{p.additionalPoints > 0 ? p.freePoints + " GRATIS!" : ''}</p>
                             </div>
                         </div>
