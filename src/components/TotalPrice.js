@@ -6,8 +6,19 @@ const TotalPrice = (props) => {
         <div className="col-xl-4">
             <div className="summary__pay">
                 <div className="widget__body">
+            <h4>Podsumowanie</h4>
                     <div className="widget__items">
-                        <div>Total price:</div>
+                        <div>Kwota netto:</div>
+                        <div className="total__price">
+                            <span>300,00</span></div>
+                    </div>
+                    <div className="widget__items">
+                        <div>VAT:</div>
+                        <div className="total__price">
+                        <span>23%</span></div>
+                    </div>
+                    <div className="widget__items">
+                        <div>DO ZAPŁATY:</div>
                         <div className="total__price">
                             <span className="total__price-27">{total}</span>,
                             <span className="total__price-21">00 zł</span></div>

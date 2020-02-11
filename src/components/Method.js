@@ -13,12 +13,15 @@ const Method = (props) => {
                                 className={"widget method " + (active === item.id ? "method__selected " : "")}
                                 onClick={() => props.payMethod(item.id)}>
                                 <div className="widget__body">
-                                    <div className="widget__items">
+                                
                                         <div>
-                                            {item.name}
+                                            <input type="radio" id={item.name} />
+                                            <label for={item.name}>{item.name}</label>
+                                        <div className="widget__items">
                                             <p className="text-muted">{item.descr}</p>
-                                        </div>
+            
                                         <div> <img src={item.img} alt="pay" /></div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>

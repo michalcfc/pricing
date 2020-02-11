@@ -25,6 +25,8 @@ class Summary extends Component {
         { title: 'Chelsea Football Club', street: 'Fulham Road', adress: 'SW6 1HS London' },
       ],
     tooltip: false,
+    isAddAnother: false,
+    newData: false,
   }
 
 
@@ -67,6 +69,20 @@ class Summary extends Component {
     });
   }
 
+  changeInvoiceData = () => {
+    const {isAddAnother} = this.state
+    this.setState({
+      isAddAnother: !isAddAnother
+    })
+  }
+
+  addAnother = () => {
+    const {isAddAnother} = this.state
+    this.setState({
+      isAddAnother: !isAddAnother
+    })
+  }
+
   saveText = (name, id) => {
     const { isEdtidMode, invoiceData } = this.state
     let addedImage = invoiceData.map(el =>
@@ -79,10 +95,29 @@ class Summary extends Component {
     });
   }
 
-  renderEditMode = () => {
+  addNewData = () => {
+    const {newData} = this.state
+    this.setState({
+      newData: !newData
+    })
+  }
+
+  newInvoiceData = () => {
     return <div>
+     <input type="text" />
+     <input type="text" />
+     <input type="text" />
+    </div>
+  }
+
+  renderEditMode = () => {
+    return <div className="widget__items">
       {this.state.invoiceData.map((i, id) => {
-        return <p key={id}>{i.title}</p>
+        return <div>
+        <p key={id}>{i.title}<br/>
+        {i.street}<br/>
+        {i.adress}<br/></p>
+        </div>
       })}
       <button onClick={() => this.changeText()} className="btn-link">[Edit]</button>
     </div>
@@ -130,16 +165,17 @@ class Summary extends Component {
   render() {
     const { pack, items, price, total, payMethod, pricing, reservation } = this.props
     const { addItems, removeItems, chooseMethod } = this
-    console.log(this.state.invoiceData);
-    console.log(333);
+    // console.log(this.state.invoiceData);
+    // console.log(333);
     return (
       <>
+        <div className={"overlay " +(this.state.isAddAnother ? "overlay-active" : "")}></div>
         <div className="row">
           <div className="col-xl-8">
             <div className="widget">
               <div className="widget__body">
                 {/* <h4>{props.pack.length || "No"} items in cart</h4> */}
-                {this.state.invoiceData.map((d, id) => { return (d.title) })}
+                {/* {this.state.invoiceData.map((d, id) => { return (d.title) })} */}
                 <Cart
                   pack={pack}
                   pricing={pricing}
@@ -149,7 +185,8 @@ class Summary extends Component {
                   removeItems={removeItems} />
 
                 <div className="position-relative">
-                  <p><input checked={reservation} onChange={(value) => this.reservation(value)} type="checkbox"></input> reservation on-line</p>
+                  <p><input id="check-1" checked={reservation} onChange={(value) => this.reservation(value)} type="checkbox"></input>
+                  <label for="check-1">włącz rezerwacje on-line</label></p>
                   <div className={this.state.tooltip ? "tip" : 'd-none'}>
                     <div className="pt-3 position-relative">
                       <div className="tip__body">
@@ -161,7 +198,18 @@ class Summary extends Component {
                   </div>
                 </div>
 
-                <Invoice renderEditMode={this.renderEditMode} renderEditView={this.renderEditView} changeText={this.changeText} isEdtidMode={this.state.isEdtidMode} />
+                <Invoice 
+                renderEditMode={this.renderEditMode} 
+                renderEditView={this.renderEditView} 
+                changeText={this.changeText} 
+                isEdtidMode={this.state.isEdtidMode}
+                changeInvoiceData={this.changeInvoiceData}
+                isAddAnother={this.state.isAddAnother}
+                addAnother={this.addAnother}
+                addNewData={this.addNewData}
+                newInvoiceData={this.newInvoiceData}
+                newData={this.state.newData}
+                 />
                 {/* {this.state.isEdtidMode ?
                   this.renderEditView() :
                   this.renderEditMode()} */}
