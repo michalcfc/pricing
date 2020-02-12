@@ -1,4 +1,5 @@
 import React from 'react';
+import  { Link } from 'react-router-dom'
 
 const TotalPrice = (props) => {
     const { total, reservation } = props
@@ -25,11 +26,10 @@ const TotalPrice = (props) => {
                     </div>
                     <div className="mt-4">{reservation ? 'Additional 8% for each reservation' : ''}</div>
                 </div>
-                <div className="widget__footer">
-                    <button className="btn btn-primary w-100">
-                        Complete Payment
-          </button>
+                <div className="widget__footer">           
+                    <Link className="btn btn-primary w-100" to="/thanks">    Complete Payment</Link>
                 </div>
+        
             </div>
         </div>
     )

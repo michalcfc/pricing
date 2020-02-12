@@ -11,9 +11,9 @@ import MethodContent from './MethodContent';
 import { addItems, removeItems, changeData, payMethod, reservation } from "../store/action";
 
 const methods = [
-  { id: 1, name: 'dotpay', descr: 'Szybkie płatności online. Gwarancja szybkiego zaksiegowania wpłaty.', content: "pay dotpay", img: dotpay },
-  { id: 2, name: 'proforma', descr: 'Pobierz fakturę proforma w formie .pdf na podstawie której dokonasz płatności', content: "pay p24", img: pdf },
-  { id: 3, name: 'blank', descr: 'Wyświetl dane do przelewu tradycyjnego aby zapłacić na poczcie lub w dowolnym punkcie.', content: " pay normal", img: blank }]
+  { id: 1, name: 'Szybki przelew', descr: 'Szybkie płatności online. Gwarancja szybkiego zaksiegowania wpłaty.', content: "pay dotpay", img: dotpay },
+  { id: 2, name: 'Proforma', descr: 'Pobierz fakturę proforma w formie .pdf na podstawie której dokonasz płatności', content: "pay p24", img: pdf },
+  { id: 3, name: 'Dane do przelewu', descr: 'Wyświetl dane do przelewu tradycyjnego aby zapłacić na poczcie lub w dowolnym punkcie.', content: " pay normal", img: blank }]
 class Summary extends Component {
 
   state = {
@@ -104,22 +104,40 @@ class Summary extends Component {
 
   newInvoiceData = () => {
     return <div>
-     <input type="text" />
-     <input type="text" />
-     <input type="text" />
+    <h4>Dodaj nowe dane:</h4>
+    <div>
+     <label htmlFor="name">Nazwa</label>
+     <input id="name" type="text"/>
+    </div>
+    <div>
+     <label htmlFor="city">Miejscowość</label>
+     <input id="city" type="text" />
+    </div>
+    <div>
+     <label htmlFor="street">Ulica</label>
+     <input id="street" type="text" />
+    </div>
+    <div>
+     <label htmlFor="zip">Kod pocztowy</label>
+     <input id="zip" type="text" />
+    </div>
+    <button className="btn btn-primary" onClick={() => this.addNewData()}>Zapisz</button>
     </div>
   }
 
   renderEditMode = () => {
-    return <div className="widget__items">
-      {this.state.invoiceData.map((i, id) => {
+    return <div className="d-flex">
+    <input checked="checked" type="radio" id="invoice" />
+      <label for="invoice"></label>
+        <div>
+            {this.state.invoiceData.map((i, id) => {
         return <div>
         <p key={id}>{i.title}<br/>
         {i.street}<br/>
         {i.adress}<br/></p>
         </div>
       })}
-      <button onClick={() => this.changeText()} className="btn-link">[Edit]</button>
+    </div>
     </div>
   }
 
@@ -213,7 +231,12 @@ class Summary extends Component {
                 {/* {this.state.isEdtidMode ?
                   this.renderEditView() :
                   this.renderEditMode()} */}
-                <a href="#" onClick={this.changeText}>Edit</a>
+              </div>
+
+            </div>
+            <div className="widget">
+            <div className="widget__body">
+
                 <Method
                   items={methods}
                   payMethod={chooseMethod}
@@ -221,9 +244,8 @@ class Summary extends Component {
                 <MethodContent
                   items={methods}
                   active={payMethod} />
-              </div>
-
-            </div>
+                  </div>
+          </div>
           </div>
           <TotalPrice total={total} reservation={reservation} />
         </div>

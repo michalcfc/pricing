@@ -4,7 +4,7 @@ const Method = (props) => {
     const { items, active } = props
     return (
         <>
-            <h4 className="mt-4">Payment method </h4>
+            <h4 className="mt-4">Metoda płatności: </h4>
             <div className="row mt-4">
                 {items.map((item, id) => {
                     return (
@@ -15,10 +15,10 @@ const Method = (props) => {
                                 <div className="widget__body">
                                 
                                         <div>
-                                            <input type="radio" id={item.name} />
+                                            <input checked={active === item.id ? 'checked' : ''} type="radio" id={item.name} />
                                             <label for={item.name}>{item.name}</label>
                                         <div className="widget__items">
-                                            <p className="text-muted">{item.descr}</p>
+                                            {/* <p className="text-muted">{item.descr}</p> */}
             
                                         <div> <img src={item.img} alt="pay" /></div>
                                     </div>
