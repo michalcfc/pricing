@@ -10,10 +10,10 @@ const Variants = (props) => {
             <h4 className="mt-4">Wybierz wariant</h4>
             <div className="row mt-4">
                 <div className="col-md-6">
-                    <div className="widget">
+                    <div className="widget variants">
                         <div className="widget__body">
                             <div className="widget__items">
-                            <img className="mr-4" height="160px" src={call}/>
+                            <img alt="call" className="mr-4" height="160px" src={call}/>
                             <div>
                             <h2 className="font-weight-bold">Abonament</h2>
                             <p>Quis autem vel eum iure reprehenderit qui in eavoluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum.</p>
@@ -26,10 +26,10 @@ const Variants = (props) => {
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <div className="widget">
+                    <div className="widget variants">
                     <div className="widget__body">
                             <div className="widget__items">
-                            <img className="mr-4" height="160px" src={schedule}/>
+                            <img alt="schedule"  className="mr-4" height="160px" src={schedule}/>
                             <div>
                             <h2 className="font-weight-bold">Rezerwacje on-line</h2>
                             <p>Quis autem vel eum iure reprehenderit qui in eavoluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum.</p>

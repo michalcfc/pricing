@@ -4,6 +4,8 @@ const Thanks = () => {
   return (
     <>
       Thanks! :)
+      Subskrybuj Yoube
+      Odwiedź na facebooku
     </>
   );
 };

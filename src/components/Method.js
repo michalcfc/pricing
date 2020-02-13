@@ -15,7 +15,7 @@ const Method = (props) => {
                                 <div className="widget__body">
                                 
                                         <div>
-                                            <input checked={active === item.id ? 'checked' : ''} type="radio" id={item.name} />
+                                            {/* <input checked={active === item.id ? 'checked' : ''} type="radio" id={item.name} /> */}
                                             <label for={item.name}>{item.name}</label>
                                         <div className="widget__items">
                                             {/* <p className="text-muted">{item.descr}</p> */}

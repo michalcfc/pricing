@@ -7,6 +7,8 @@ import PropType from "prop-types";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
+
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./sass/main.scss";
 

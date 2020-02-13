@@ -17,6 +17,7 @@ const TotalPrice = (props) => {
                         <div>VAT:</div>
                         <div className="total__price">
                         <span>23%</span></div>
+                        
                     </div>
                     <div className="widget__items">
                         <div>DO ZAPŁATY:</div>
@@ -30,6 +31,14 @@ const TotalPrice = (props) => {
                     <Link className="btn btn-primary w-100" to="/thanks">    Complete Payment</Link>
                 </div>
         
+            </div>
+            <div className="widget__special mt-3">
+                <div>
+                    <i class="fa fa-gift" aria-hidden="true"></i> 
+                </div>
+            <div>
+                <h3> Odbierz super extra prezent :)</h3>
+            </div>
             </div>
         </div>
     )

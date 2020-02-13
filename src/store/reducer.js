@@ -8,7 +8,8 @@ const initialState = {
   payMethod: 0,
   active: '',
   reservation: false,
-  pricing: [
+  pricing: [{
+    abo: [
     {
       id: 0,
       name: "Standard",
@@ -56,15 +57,33 @@ const initialState = {
         "eCommerce Store"
       ],
       quantity: 0
+    }],
+    res: 
+    {
+      id: 3,
+      name: "Rezerwacje on-line",
+      price: '8%',
+      points: 0,
+      freePoints: 0,
+      additionalPoints: 0,
+      pointPrice: 1,
+      benefits: [
+        "Drag & Drop Builder",
+        "1,000's of Templates",
+        "Blog Support Tools",
+        "eCommerce Store"
+      ],
+      quantity: 0
     }
-  ]
+    
+  }]
 };
 
 const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case "CHOOSING_PACK":
-      let addedItem = state.pricing.find(item => item.id === action.id)
+      let addedItem = state.pricing[0].abo.find(item => item.id === action.id)
       addedItem.quantity += 1
       return {
         ...state,

@@ -184,7 +184,7 @@ class Summary extends Component {
     const { pack, items, price, total, payMethod, pricing, reservation } = this.props
     const { addItems, removeItems, chooseMethod } = this
     // console.log(this.state.invoiceData);
-    // console.log(333);
+    // console.log(reservation);
     return (
       <>
         <div className={"overlay " +(this.state.isAddAnother ? "overlay-active" : "")}></div>
@@ -200,21 +200,11 @@ class Summary extends Component {
                   items={items}
                   price={price}
                   addItems={addItems}
-                  removeItems={removeItems} />
-
-                <div className="position-relative">
-                  <p><input id="check-1" checked={reservation} onChange={(value) => this.reservation(value)} type="checkbox"></input>
-                  <label for="check-1">włącz rezerwacje on-line</label></p>
-                  <div className={this.state.tooltip ? "tip" : 'd-none'}>
-                    <div className="pt-3 position-relative">
-                      <div className="tip__body">
-                        <span className="tip__close" onClick={() => this.tooltip()}>x</span>
-                        Chcesz szybciej pozyskiwać gości. Włącz rezerwacje on-line.
-                      </div>
-                      <div className="tip__arrow"></div>
-                    </div>
-                  </div>
-                </div>
+                  removeItems={removeItems}
+                  reservation={reservation}
+                  res={this.reservation} 
+                  tooltip={this.state.tooltip}
+                  tip={this.tooltip}/>
 
                 <Invoice 
                 renderEditMode={this.renderEditMode} 

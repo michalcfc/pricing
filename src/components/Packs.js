@@ -24,23 +24,32 @@ class Packs extends Component {
       <>
         <div className="container">
           <div className="row">
+            <div className="col-md-12 w-100 text-center">
+            <h2>Wybierz pakiet</h2>
+            <p>Współpraca z Noclegowo dostępna jest w jednej z dwóch opcji:<br/>
+<b>rozliczenie za rezerwacje</b> lub <b>roczna opłata abonamentowa</b>.</p>
+
           <div
             className={
               isReservationPack ? "toggle-btn active" : "toggle-btn"
             }
             onClick={() => this.reservation()}
-          >
+            >
             <input
               type="checkbox"
               className="cb-value"
               // onMouseOver={() => props.handleMouseEnter()}
-            />
+              />
             <span className="round-btn" />
           </div>
+              </div>
           </div>
+            3 / 12 ms-c
           <div className="row">
-            {isReservationPack ? 'rezerwacje' : '' }
-            {pricing.map((b, id) => {
+            {isReservationPack ? (<Pack benefits={pricing[0].res.benefits} name={pricing[0].res.name} price={pricing[0].res.price} />) : 
+           ( 
+            <> 
+            {pricing[0].abo.map((b, id) => {
               return (
 
                   <Pack
@@ -53,7 +62,7 @@ class Packs extends Component {
                   />
                   );
                 })}
-                
+           </>)}
           </div>
         </div>
       </>
