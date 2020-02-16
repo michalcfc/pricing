@@ -7,13 +7,12 @@ import dotpay from '../img/dotpay2.png'
 import pdf from '../img/pdf.png'
 import Invoice from './Invoice'
 import TotalPrice from './TotalPrice'
-import MethodContent from './MethodContent';
 import { addItems, removeItems, changeData, payMethod, reservation } from "../store/action";
 
 const methods = [
-  { id: 1, name: 'Szybki przelew', descr: 'Szybkie płatności online. Gwarancja szybkiego zaksiegowania wpłaty.', content: "pay dotpay", img: dotpay },
-  { id: 2, name: 'Proforma', descr: 'Pobierz fakturę proforma w formie .pdf na podstawie której dokonasz płatności', content: "pay p24", img: pdf },
-  { id: 3, name: 'Dane do przelewu', descr: 'Wyświetl dane do przelewu tradycyjnego aby zapłacić na poczcie lub w dowolnym punkcie.', content: " pay normal", img: blank }]
+  { id: 1, name: 'Szybki przelew', descr: 'Szybkie płatności online. Gwarancja szybkiego zaksiegowania wpłaty.', button: '', content: "pay dotpay", img: dotpay },
+  { id: 2, name: 'Proforma', descr: 'Pobierz fakturę proforma w formie .pdf na podstawie której dokonasz płatności', button: 'Generuj fakturę', content: "pay p24", img: pdf },
+  { id: 3, name: 'Dane do przelewu', descr: 'Wyświetl dane do przelewu tradycyjnego aby zapłacić na poczcie lub w dowolnym punkcie.', button: 'Pokaz dane', content: " pay normal", img: blank }]
 class Summary extends Component {
 
   state = {
@@ -70,14 +69,14 @@ class Summary extends Component {
   }
 
   changeInvoiceData = () => {
-    const {isAddAnother} = this.state
+    const { isAddAnother } = this.state
     this.setState({
       isAddAnother: !isAddAnother
     })
   }
 
   addAnother = () => {
-    const {isAddAnother} = this.state
+    const { isAddAnother } = this.state
     this.setState({
       isAddAnother: !isAddAnother
     })
@@ -96,7 +95,7 @@ class Summary extends Component {
   }
 
   addNewData = () => {
-    const {newData} = this.state
+    const { newData } = this.state
     this.setState({
       newData: !newData
     })
@@ -104,40 +103,40 @@ class Summary extends Component {
 
   newInvoiceData = () => {
     return <div>
-    <h4>Dodaj nowe dane:</h4>
-    <div>
-     <label htmlFor="name">Nazwa</label>
-     <input id="name" type="text"/>
-    </div>
-    <div>
-     <label htmlFor="city">Miejscowość</label>
-     <input id="city" type="text" />
-    </div>
-    <div>
-     <label htmlFor="street">Ulica</label>
-     <input id="street" type="text" />
-    </div>
-    <div>
-     <label htmlFor="zip">Kod pocztowy</label>
-     <input id="zip" type="text" />
-    </div>
-    <button className="btn btn-primary" onClick={() => this.addNewData()}>Zapisz</button>
+      <h4>Dodaj nowe dane:</h4>
+      <div>
+        <label htmlFor="name">Nazwa</label>
+        <input id="name" type="text" />
+      </div>
+      <div>
+        <label htmlFor="city">Miejscowość</label>
+        <input id="city" type="text" />
+      </div>
+      <div>
+        <label htmlFor="street">Ulica</label>
+        <input id="street" type="text" />
+      </div>
+      <div>
+        <label htmlFor="zip">Kod pocztowy</label>
+        <input id="zip" type="text" />
+      </div>
+      <button className="btn btn-primary" onClick={() => this.addNewData()}>Zapisz</button>
     </div>
   }
 
   renderEditMode = () => {
     return <div className="d-flex">
-    <input checked="checked" type="radio" id="invoice" />
+      <input checked="checked" type="radio" id="invoice" />
       <label for="invoice"></label>
-        <div>
-            {this.state.invoiceData.map((i, id) => {
-        return <div>
-        <p key={id}>{i.title}<br/>
-        {i.street}<br/>
-        {i.adress}<br/></p>
-        </div>
-      })}
-    </div>
+      <div>
+        {this.state.invoiceData.map((i, id) => {
+          return <div>
+            <p key={id}>{i.title}<br />
+              {i.street}<br />
+              {i.adress}<br /></p>
+          </div>
+        })}
+      </div>
     </div>
   }
 
@@ -170,7 +169,7 @@ class Summary extends Component {
           </div>
         )
       })}
-      <button className="btn btn-outline-dark" onClick={(name) => this.saveText(name)}>Save</button>
+      <button className="btn-small btn-outline-dark" onClick={(name) => this.saveText(name)}>Zapisz zmiany</button>
     </div >
   }
 
@@ -187,7 +186,7 @@ class Summary extends Component {
     // console.log(reservation);
     return (
       <>
-        <div className={"overlay " +(this.state.isAddAnother ? "overlay-active" : "")}></div>
+        <div className={"overlay " + (this.state.isAddAnother ? "overlay-active" : "")}></div>
         <div className="row">
           <div className="col-xl-8">
             <div className="widget">
@@ -202,40 +201,40 @@ class Summary extends Component {
                   addItems={addItems}
                   removeItems={removeItems}
                   reservation={reservation}
-                  res={this.reservation} 
+                  res={this.reservation}
                   tooltip={this.state.tooltip}
-                  tip={this.tooltip}/>
+                  tip={this.tooltip} />
 
-                <Invoice 
-                renderEditMode={this.renderEditMode} 
-                renderEditView={this.renderEditView} 
-                changeText={this.changeText} 
-                isEdtidMode={this.state.isEdtidMode}
-                changeInvoiceData={this.changeInvoiceData}
-                isAddAnother={this.state.isAddAnother}
-                addAnother={this.addAnother}
-                addNewData={this.addNewData}
-                newInvoiceData={this.newInvoiceData}
-                newData={this.state.newData}
-                 />
+                <Invoice
+                  renderEditMode={this.renderEditMode}
+                  renderEditView={this.renderEditView}
+                  changeText={this.changeText}
+                  isEdtidMode={this.state.isEdtidMode}
+                  changeInvoiceData={this.changeInvoiceData}
+                  isAddAnother={this.state.isAddAnother}
+                  addAnother={this.addAnother}
+                  addNewData={this.addNewData}
+                  newInvoiceData={this.newInvoiceData}
+                  newData={this.state.newData}
+                />
                 {/* {this.state.isEdtidMode ?
                   this.renderEditView() :
                   this.renderEditMode()} */}
               </div>
 
             </div>
-            <div className="widget">
-            <div className="widget__body">
+            <div>
 
-                <Method
-                  items={methods}
-                  payMethod={chooseMethod}
-                  active={payMethod} />
-                <MethodContent
-                  items={methods}
-                  active={payMethod} />
-                  </div>
-          </div>
+
+              <Method
+                items={methods}
+                payMethod={chooseMethod}
+                active={payMethod} />
+              {/* <MethodContent
+                items={methods}
+                active={payMethod} /> */}
+
+            </div>
           </div>
           <TotalPrice total={total} reservation={reservation} />
         </div>

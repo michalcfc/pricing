@@ -15,51 +15,51 @@ const Invoice = (props) => {
                 <a href="#" onClick={() => props.changeInvoiceData()}>Zmień</a>
             </div>
             <div className="invoice__info d-flex">
-                <img className="mr-3" src={warning}/>
+                <img className="mr-3" src={warning} />
                 <small>
-                    Faktura zostanie wystawiona w ciągu 7 dni od momentu zaksięgowania wpłaty. <br/>Dokument zostanie przesłany drogą elektroniczną. Wszystkie faktury dostępne są równiez w zakładce historia płatności.</small>
+                    Faktura zostanie wystawiona w ciągu 7 dni od momentu zaksięgowania wpłaty. <br />Dokument zostanie przesłany drogą elektroniczną. Wszystkie faktury dostępne są równiez w zakładce historia płatności.</small>
             </div>
-            {props.isAddAnother ? ( 
+            {props.isAddAnother ? (
                 <div className="openModal">
-                {props.newData ? props.newInvoiceData() :  (<> <span onClick={() => props.changeInvoiceData()}>x close</span>
-                <div className="widget__items">
-          
-                <div className="invoice__data">
-                    <div className="invoice__check">
-                        <input checked="checked" id="radio-1" type="radio" name="radio" />
-                        <label for="radio-1"></label>
-                    </div>
-                    <div>
-                        Name: Grupa iTur.pl Sp.z.o.o<br/>
-                        Street: Kwarcowa 17<br/>
-                        Zip: 90-200<br/>
-                    </div>
-                </div>
+                    {props.newData ? props.newInvoiceData() : (<> <span onClick={() => props.changeInvoiceData()}>x close</span>
+                        <div className="widget__items">
 
-                <div className="invoice__data">
-                    <div className="invoice__check">
-                        <input id="radio-2" type="radio" name="radio" />
-                        <label for="radio-2"></label>
-                    </div>
-                    <div>
-                        Name: Michał Jachimowski<br/>
-                        Street: Narutowicza 56<br/>
-                        Zip: 90-136<br/>
-                    </div>
-                </div>
-                
-                <div className="invoice__data">
-                  <a href="#" onClick={() => props.addNewData()}> + Dodaj nowe dane </a>
-            </div> 
-    
-            </div>
-            </>) }
-                
-               
-            </div> ) : '' }
-   
-     </div>
-     )
-     }
+                            <div className="invoice__data">
+                                <div className="d-flex">
+                                    <input checked="checked" id="radio-1" type="radio" name="radio" />
+                                    <label for="radio-1"></label>
+                                    <div>
+                                        Grupa iTur.pl Sp.z.o.o<br />
+                                        Kwarcowa 17<br />
+                                        90-200<br />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="invoice__data">
+                                <div className="d-flex">
+                                    <input id="radio-2" type="radio" name="radio" />
+                                    <label for="radio-2"></label>
+                                    <div>
+                                        Grupa iTur.pl Sp.z.o.o<br />
+                                        Kwarcowa 17<br />
+                                        90-200<br />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="invoice__data">
+                                <a href="#" onClick={() => props.addNewData()}> + Dodaj nowe dane </a>
+                            </div>
+
+                        </div>
+                    </>)}
+
+
+                </div>) : ''}
+
+        </div>
+    )
+}
 
 export default Invoice

@@ -10,55 +10,58 @@ const initialState = {
   reservation: false,
   pricing: [{
     abo: [
-    {
-      id: 0,
-      name: "Standard",
-      price: 399,
-      points: 72,
-      freePoints: 72,
-      additionalPoints: 0,
-      pointPrice: 1,
-      benefits: [
-        "Drag & Drop Builder",
-        "1,000's of Templates",
-        "Blog Support Tools",
-        "eCommerce Store"
-      ],
-      quantity: 0
-    },
-    {
-      id: 1,
-      name: "Premium",
-      price: 999,
-      points: 198,
-      freePoints: 198,
-      additionalPoints: 0,
-      pointPrice: 1,
-      benefits: [
-        "Drag & Drop Builder",
-        "1,000's of Templates",
-        "Blog Support Tools",
-        "eCommerce Store"
-      ],
-      quantity: 0
-    },
-    {
-      id: 2,
-      name: "Premium+",
-      price: 1999,
-      points: 1898,
-      freePoints: 1898,
-      additionalPoints: 0,
-      pointPrice: 1,
-      benefits: [
-        "Drag & Drop Builder",
-        "1,000's of Templates",
-        "Blog Support Tools",
-        "eCommerce Store"
-      ],
-      quantity: 0
-    }],
-    res: 
+      {
+        id: 0,
+        name: "Standard",
+        price: 399,
+        halfPrice: 169,
+        points: 72,
+        freePoints: 72,
+        additionalPoints: 0,
+        pointPrice: 1,
+        benefits: [
+          "Drag & Drop Builder",
+          "1,000's of Templates",
+          "Blog Support Tools",
+          "eCommerce Store"
+        ],
+        quantity: 0
+      },
+      {
+        id: 1,
+        name: "Premium",
+        price: 999,
+        halfPrice: 399,
+        points: 198,
+        freePoints: 198,
+        additionalPoints: 0,
+        pointPrice: 1,
+        benefits: [
+          "Drag & Drop Builder",
+          "1,000's of Templates",
+          "Blog Support Tools",
+          "eCommerce Store"
+        ],
+        quantity: 0
+      },
+      {
+        id: 2,
+        name: "Premium+",
+        price: 1999,
+        halfPrice: 799,
+        points: 1898,
+        freePoints: 1898,
+        additionalPoints: 0,
+        pointPrice: 1,
+        benefits: [
+          "Drag & Drop Builder",
+          "1,000's of Templates",
+          "Blog Support Tools",
+          "eCommerce Store"
+        ],
+        quantity: 0
+      }],
+    res:
     {
       id: 3,
       name: "Rezerwacje on-line",
@@ -75,7 +78,7 @@ const initialState = {
       ],
       quantity: 0
     }
-    
+
   }]
 };
 
@@ -111,6 +114,11 @@ const reducer = (state = initialState, action) => {
           total: newTotal
         };
       }
+
+    case "HALF_PRICE":
+      return {
+        ...state,
+      };
 
     case "REMOVE_ITEMS":
       let removePack = state.pack.find(item => item.id === action.id)

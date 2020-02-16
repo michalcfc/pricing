@@ -7,3 +7,4 @@ export { default as Summary } from "./Summary";
 export { default as Sidebar } from "./Sidebar";
 export { default as Topbar } from "./Topbar";
 export { default as Variants } from "./Variants";
+export { default as Reservation } from "./Reservation";
