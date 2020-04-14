@@ -7,13 +7,12 @@ import dotpay from '../img/dotpay2.png'
 import pdf from '../img/pdf.png'
 import Invoice from './Invoice'
 import TotalPrice from './TotalPrice'
-import MethodContent from './MethodContent';
 import { addItems, removeItems, changeData, payMethod, reservation } from "../store/action";
 
 const methods = [
-  { id: 1, name: 'dotpay', descr: 'Szybkie płatności online. Gwarancja szybkiego zaksiegowania wpłaty.', content: "pay dotpay", img: dotpay },
-  { id: 2, name: 'proforma', descr: 'Pobierz fakturę proforma w formie .pdf na podstawie której dokonasz płatności', content: "pay p24", img: pdf },
-  { id: 3, name: 'blank', descr: 'Wyświetl dane do przelewu tradycyjnego aby zapłacić na poczcie lub w dowolnym punkcie.', content: " pay normal", img: blank }]
+  { id: 1, name: 'Szybki przelew', descr: 'Szybkie płatności online. Gwarancja szybkiego zaksiegowania wpłaty.', button: '', content: "pay dotpay", img: dotpay },
+  { id: 2, name: 'Proforma', descr: 'Pobierz fakturę proforma w formie .pdf na podstawie której dokonasz płatności', button: 'Generuj fakturę', content: "pay p24", img: pdf },
+  { id: 3, name: 'Dane do przelewu', descr: 'Wyświetl dane do przelewu tradycyjnego aby zapłacić na poczcie lub w dowolnym punkcie.', button: 'Pokaz dane', content: " pay normal", img: blank }]
 class Summary extends Component {
 
   state = {
@@ -25,6 +24,8 @@ class Summary extends Component {
         { title: 'Chelsea Football Club', street: 'Fulham Road', adress: 'SW6 1HS London' },
       ],
     tooltip: false,
+    isAddAnother: false,
+    newData: false,
   }
 
 
@@ -67,6 +68,20 @@ class Summary extends Component {
     });
   }
 
+  changeInvoiceData = () => {
+    const { isAddAnother } = this.state
+    this.setState({
+      isAddAnother: !isAddAnother
+    })
+  }
+
+  addAnother = () => {
+    const { isAddAnother } = this.state
+    this.setState({
+      isAddAnother: !isAddAnother
+    })
+  }
+
   saveText = (name, id) => {
     const { isEdtidMode, invoiceData } = this.state
     let addedImage = invoiceData.map(el =>
@@ -79,12 +94,49 @@ class Summary extends Component {
     });
   }
 
-  renderEditMode = () => {
+  addNewData = () => {
+    const { newData } = this.state
+    this.setState({
+      newData: !newData
+    })
+  }
+
+  newInvoiceData = () => {
     return <div>
-      {this.state.invoiceData.map((i, id) => {
-        return <p key={id}>{i.title}</p>
-      })}
-      <button onClick={() => this.changeText()} className="btn-link">[Edit]</button>
+      <h4>Dodaj nowe dane:</h4>
+      <div>
+        <label htmlFor="name">Nazwa</label>
+        <input id="name" type="text" />
+      </div>
+      <div>
+        <label htmlFor="city">Miejscowość</label>
+        <input id="city" type="text" />
+      </div>
+      <div>
+        <label htmlFor="street">Ulica</label>
+        <input id="street" type="text" />
+      </div>
+      <div>
+        <label htmlFor="zip">Kod pocztowy</label>
+        <input id="zip" type="text" />
+      </div>
+      <button className="btn btn-primary" onClick={() => this.addNewData()}>Zapisz</button>
+    </div>
+  }
+
+  renderEditMode = () => {
+    return <div className="d-flex">
+      <input checked="checked" type="radio" id="invoice" />
+      <label for="invoice"></label>
+      <div>
+        {this.state.invoiceData.map((i, id) => {
+          return <div>
+            <p key={id}>{i.title}<br />
+              {i.street}<br />
+              {i.adress}<br /></p>
+          </div>
+        })}
+      </div>
     </div>
   }
 
@@ -117,7 +169,7 @@ class Summary extends Component {
           </div>
         )
       })}
-      <button className="btn btn-outline-dark" onClick={(name) => this.saveText(name)}>Save</button>
+      <button className="btn-small btn-outline-dark" onClick={(name) => this.saveText(name)}>Zapisz zmiany</button>
     </div >
   }
 
@@ -130,50 +182,57 @@ class Summary extends Component {
   render() {
     const { pack, items, price, total, payMethod, pricing, reservation } = this.props
     const { addItems, removeItems, chooseMethod } = this
-    console.log(this.state.invoiceData);
-    console.log(333);
+    // console.log(this.state.invoiceData);
+    // console.log(reservation);
     return (
       <>
+        <div className={"overlay " + (this.state.isAddAnother ? "overlay-active" : "")}></div>
         <div className="row">
           <div className="col-xl-8">
             <div className="widget">
               <div className="widget__body">
                 {/* <h4>{props.pack.length || "No"} items in cart</h4> */}
-                {this.state.invoiceData.map((d, id) => { return (d.title) })}
+                {/* {this.state.invoiceData.map((d, id) => { return (d.title) })} */}
                 <Cart
                   pack={pack}
                   pricing={pricing}
                   items={items}
                   price={price}
                   addItems={addItems}
-                  removeItems={removeItems} />
+                  removeItems={removeItems}
+                  reservation={reservation}
+                  res={this.reservation}
+                  tooltip={this.state.tooltip}
+                  tip={this.tooltip} />
 
-                <div className="position-relative">
-                  <p><input checked={reservation} onChange={(value) => this.reservation(value)} type="checkbox"></input> reservation on-line</p>
-                  <div className={this.state.tooltip ? "tip" : 'd-none'}>
-                    <div className="pt-3 position-relative">
-                      <div className="tip__body">
-                        <span className="tip__close" onClick={() => this.tooltip()}>x</span>
-                        Chcesz szybciej pozyskiwać gości. Włącz rezerwacje on-line.
-                      </div>
-                      <div className="tip__arrow"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <Invoice renderEditMode={this.renderEditMode} renderEditView={this.renderEditView} changeText={this.changeText} isEdtidMode={this.state.isEdtidMode} />
+                <Invoice
+                  renderEditMode={this.renderEditMode}
+                  renderEditView={this.renderEditView}
+                  changeText={this.changeText}
+                  isEdtidMode={this.state.isEdtidMode}
+                  changeInvoiceData={this.changeInvoiceData}
+                  isAddAnother={this.state.isAddAnother}
+                  addAnother={this.addAnother}
+                  addNewData={this.addNewData}
+                  newInvoiceData={this.newInvoiceData}
+                  newData={this.state.newData}
+                />
                 {/* {this.state.isEdtidMode ?
                   this.renderEditView() :
                   this.renderEditMode()} */}
-                <a href="#" onClick={this.changeText}>Edit</a>
-                <Method
-                  items={methods}
-                  payMethod={chooseMethod}
-                  active={payMethod} />
-                <MethodContent
-                  items={methods}
-                  active={payMethod} />
               </div>
+
+            </div>
+            <div>
+
+
+              <Method
+                items={methods}
+                payMethod={chooseMethod}
+                active={payMethod} />
+              {/* <MethodContent
+                items={methods}
+                active={payMethod} /> */}
 
             </div>
           </div>

@@ -1,24 +1,31 @@
 import React from 'react';
+import MethodContent from './MethodContent'
 
 const Method = (props) => {
     const { items, active } = props
     return (
         <>
-            <h4 className="mt-4">Payment method </h4>
+            <h4 className="ml-2 mt-4">Wybierz metodę płatności: </h4>
             <div className="row mt-4">
                 {items.map((item, id) => {
                     return (
-                        <div key={id} className="col-md-4">
+                        <div key={id} className="col-md-12">
                             <div
                                 className={"widget method " + (active === item.id ? "method__selected " : "")}
                                 onClick={() => props.payMethod(item.id)}>
+                                {item.name === 'Szybki przelew' ? (<span className="payment__ribbon">Rekomendowany</span>) : ''}
                                 <div className="widget__body">
-                                    <div className="widget__items">
-                                        <div>
-                                            {item.name}
-                                            <p className="text-muted">{item.descr}</p>
+                                    <div>
+                                        <div className="widget__items">
+                                            <input type="radio" checked={active === item.id && 'checked'} />
+                                            <label for={item.name}>{item.name}</label>
+                                            <div> <img src={item.img} alt="pay" /></div>
                                         </div>
-                                        <div> <img src={item.img} alt="pay" /></div>
+                                        <MethodContent
+                                            id={item.id}
+                                            active={active}
+                                            descr={item.descr}
+                                        />
                                     </div>
                                 </div>
                             </div>

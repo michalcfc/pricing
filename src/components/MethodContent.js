@@ -1,23 +1,18 @@
 import React from 'react';
 
-const Method = (props) => {
-    const { items, active } = props
+const MethodContent = (props) => {
+    const { id, active, descr } = props
     return (
-        <div className="row mt-4">
-            {items.map((item, id) => {
-                return (
-                    <div key={id} className="col-md-12">
-                        <div
-                            onClick={() => props.payMethod(item.id)}>
-                            <div className={active === item.id ? 'd-block' : 'd-none'}>
-                                {item.content}
-                            </div>
-                        </div>
+        <div className="row">
+            <div className="col-md-12 d-flex">
+                <div>
+                    <div className={active === id ? 'd-block' : 'd-none'}>
+                        {descr}
                     </div>
-                )
-            })}
+                </div>
+            </div>
         </div>
     )
 }
 
-export default Method
+export default MethodContent

@@ -44,3 +44,10 @@ export const payMethod = method => {
     method
   };
 };
+
+export const halfPrice = price => {
+  return {
+    type: "HALF_PRICE",
+    price
+  };
+};

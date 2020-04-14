@@ -47,6 +47,28 @@ const Cart = (props) => {
                         </div>
                     </div>
                 ))}
+                <div className="position-relative d-flex align-items-center mt-3">
+                 <span className="mr-2">Włącz rezerwacje on-line</span>
+                <div 
+                  className={props.reservation ? "toggle-btn active" : "toggle-btn"}
+                  onClick={(value) => props.res(value)}
+                >
+            <input
+              type="checkbox"
+              className="cb-value"
+            />
+            <span className="round-btn" />
+            <div className={props.tooltip ? "tip" : 'd-none'}>
+                    <div className="pt-3 position-relative">
+                      <div className="tip__body">
+                        <span className="tip__close" onClick={() => props.tip()}>x</span>
+                        Chcesz szybciej pozyskiwać gości. Włącz rezerwacje on-line.
+                      </div>
+                      <div className="tip__arrow"></div>
+                    </div>
+                  </div>
+          </div>
+                </div>
             </div>
         </>
     )
